@@ -100,15 +100,19 @@ ports:
 service:
   enabled: true
   type: ClusterIP
+
   ports:
-    - port: *mitmproxy-port
+
+    - name: *mitmproxy-name
+      port: *mitmproxy-port
+      protocol: TCP
       targetPort: *mitmproxy-name
+
+    - name: *mitmweb-name
+      port: *mitmweb-port
       protocol: TCP
-      name: *mitmproxy-name
-    - port: *mitmweb-port
       targetPort: *mitmweb-name
-      protocol: TCP
-      name: *mitmweb-name
+
   annotations: {}
 
 ## @param livenessProbe.httpGet.path Path to probe
