@@ -6,4 +6,4 @@ metadata:
     {{- include "mitmproxy.labels" . | nindent 4 }}
 data:
   config.yaml: |-
-    {{- .Files.Get "config.yaml" | nindent 4 }}
+    {{- (.Values.config | default (.Files.Get "config.yaml")) | nindent 4 }}

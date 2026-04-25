@@ -17,6 +17,9 @@ args:
   - --web-host
   - 0.0.0.0
 
+## @param config Allow specifying mitm config file, either in an override.yaml, or with --set-file
+config: ""
+
 ## @param tty.enabled Enable tty
 # This mitigates the issue of the container not emitting any logs
 tty:
